@@ -1,4 +1,3 @@
-// console.log("hello");
 /*
 The NotesKeeping Application is a user-friendly web platform enabling CRUD operations (Create, Read, Update, Delete) for note management. Featuring an intuitive interface, users can efficiently create, view, update, and delete notes. Additionally, a robust search functionality facilitates quick access to specific notes, enhancing productivity and facilitates in better organising of the notes.
 */
@@ -59,7 +58,6 @@ function showNotes() {
 }
 // function to delete note
 function deleteNote(index){
-    // console.log("deleting note ", index);
     let notes=localStorage.getItem('notes');
     if(notes==null){
         notesObj=[];
@@ -71,25 +69,6 @@ function deleteNote(index){
     localStorage.setItem('notes',JSON.stringify(notesObj));
     showNotes();
 }
-
-// function to edit note using prompt
-// function editNote(index) {
-//     let noteContent = document.getElementById(`note${index}`).innerText;
-//     let updatedNote = prompt("Edit your note:", noteContent);
-//     if (updatedNote != null && updatedNote.trim() !== "") {
-//         let notes = localStorage.getItem('notes');
-//         if (notes == null) {
-//             notesObj = [];
-//         }
-//         else {
-//             notesObj = JSON.parse(notes);
-//         }
-//         notesObj[index] = updatedNote;
-//         localStorage.setItem('notes', JSON.stringify(notesObj));
-//         showNotes();
-//     }
-// }
-
 //function to save note
 function saveNote(index) {
     let updatedNote = document.getElementById(`note${index}`).value;
@@ -109,7 +88,6 @@ let search=document.getElementById('searchTxt');
 
 search.addEventListener("input",function(){
     let inputVal=search.value.toLowerCase();
-    // console.log("input fired", inputVal);
     let noteCards=document.getElementsByClassName('noteCard');
     Array.from(noteCards).forEach(function(element){
         let cardTxt=element.getElementsByTagName("textarea")[0].value;
